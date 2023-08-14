@@ -1,0 +1,67 @@
+.navbar-expand-lg .navbar-collapse {
+  display: flex !important;
+  justify-content: space-around;
+  flex-basis: auto;
+}
+
+.navbar-nav .nav-item .active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Estilos personalizados para el formulario */
+.cuerpo {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: #fff;
+  background-color: black;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.submit {
+  background-color: coral;
+}
+
+/* Estilos personalizados para la sección de peinados */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+}
