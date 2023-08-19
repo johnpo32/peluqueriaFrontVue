@@ -4,7 +4,7 @@
 <template>
     <main>
         <!-- formulario de reserva -->
-        <form id="contenido-reserva" @submit="checkForm">
+        <form id="contenido-reserva">
             <!-- creo fila -->
             <div class="row">
                 <!-- columna relleno -->
@@ -36,10 +36,14 @@
                         <option value="peinado">Peinado</option>
                     </select>
                     <!-- boton submit -->
-                    <button @click="reservationForm" type="submit" class="btn btn-warning">Reservar</button>
+                    <button @click="checkForm" type="button" class="btn btn-warning">Reservar</button>
                 </div>
                 <!-- columna relleno -->
-                <div class="col-md-4"></div>
+                <div class="col-md-4 historico">
+                    <button type="button" class="btn btn-info">
+                        <RouterLink to="/historico">Historico</RouterLink>
+                    </button>
+                </div>
             </div>
         </form>
     </main>
@@ -47,18 +51,46 @@
 <script>
 export default {
     methods: {
-        checkForm() {
+        async checkForm() {
             // Obtiene los valores ingresados por el usuario
-            const name = document.getElementById('name').value;
+            const cliente = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const service = document.getElementById('service').value;
+            const fecha = document.getElementById('date').value;
+            const hora = document.getElementById('time').value;
+            const servicio = document.getElementById('service').value;
+            const estilista = document.getElementById('estilista').value;
 
-            // Mostrar un mensaje de éxito
-            alert('Reserva exitosa! Gracias, ' + name + ', tu reserva para el servicio de ' + service + ' el día ' + date + ' a las ' + time + ' ha sido confirmada.');
+            if ( cliente != '' && email != '' && phone != '' && fecha != '' && hora != ''
+            && servicio != '' && estilista != '') {
+                const datos = {
+                    cliente,
+                    email,
+                    phone,
+                    fecha,
+                    hora,
+                    servicio,
+                    estilista
+                }
+    
+                await this.axios.post('https://test-479f4-default-rtdb.firebaseio.com/reservas.json', datos, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }).then(() => {
+                    this.$router.push({ path: '/historico' })
+                }).catch((error) => {
+                    console.log(error)
+                })
+            }
+
+
         }
     }
 }
 </script>
+<style>
+.historico {
+    text-align: end;
+}
+</style>
