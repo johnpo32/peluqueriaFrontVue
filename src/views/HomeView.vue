@@ -49,7 +49,13 @@
     </main>
 </template>
 <script>
+import { useAuthStore } from '../stores/token'
 export default {
+    mounted() {
+        if (useAuthStore().token == '')
+            this.$router.push({ path: '/login' })
+
+    },
     methods: {
         async checkForm() {
             // Obtiene los valores ingresados por el usuario
@@ -61,8 +67,8 @@ export default {
             const servicio = document.getElementById('service').value;
             const estilista = document.getElementById('estilista').value;
 
-            if ( cliente != '' && email != '' && phone != '' && fecha != '' && hora != ''
-            && servicio != '' && estilista != '') {
+            if (cliente != '' && email != '' && phone != '' && fecha != '' && hora != ''
+                && servicio != '' && estilista != '') {
                 const datos = {
                     cliente,
                     email,
@@ -72,7 +78,7 @@ export default {
                     servicio,
                     estilista
                 }
-    
+
                 await this.axios.post('https://test-479f4-default-rtdb.firebaseio.com/reservas.json', datos, {
                     headers: {
                         'Content-Type': 'application/json',

@@ -1,4 +1,13 @@
 <script setup>
+import { useAuthStore } from './stores/token'
+
+const usuario = useAuthStore()
+
+const salir = () => {
+  usuario.$reset
+  location.reload()
+}
+
 </script>
 
 <template>
@@ -6,6 +15,13 @@
     <header>
       <!-- navbar de navegacion -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <span v-if="usuario.getUser != ''"> 
+          <a class="navbar-brand"><RouterLink to="/">{{usuario.getUser.displayName}}</RouterLink></a>
+          <button @click="salir" type="button" class="btn btn-secondary">Salir</button>
+        </span>
+        <span v-else>
+          <a class="navbar-brand"><RouterLink to="/login">Login</RouterLink></a>
+        </span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
           aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -47,6 +63,7 @@
     <RouterView />
   </div>
 </template>
+
 <style scoped>
 header {
   line-height: 1.5;

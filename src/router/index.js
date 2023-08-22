@@ -4,6 +4,7 @@ import PeinadosView from '../views/PeinadosView.vue'
 import ExtensionesView from '../views/ExtensionesView.vue'
 import EstilistasView from '../views/EstilistasView.vue'
 import Historico from '../views/Historico.vue'
+import Login from '../views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
       path: '/historico',
       name: 'historico',
       component: Historico
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
   ]
 })
