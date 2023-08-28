@@ -14,7 +14,7 @@
   font-family: Arial, sans-serif;
   text-align: center;
   color: #fff;
-  background-color: black;
+  background-color: rgb(15, 15, 15);
   min-height: 100vh;
 }
 
@@ -65,3 +65,4 @@ button {
   width: 100%;
   height: auto;
 }
+

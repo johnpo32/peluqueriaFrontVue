@@ -36,7 +36,7 @@
                         <option value="peinado">Peinado</option>
                     </select>
                     <!-- boton submit -->
-                    <button @click="checkForm" type="button" class="btn btn-warning">Reservar</button>
+                    <button @click="checkForm" type="button" class="btn btn-warning mt-4">Reservar</button>
                 </div>
                 <!-- columna relleno -->
                 <div class="col-md-4 historico">

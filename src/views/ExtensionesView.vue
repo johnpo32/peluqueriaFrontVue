@@ -11,7 +11,7 @@
                     <!-- galeria -->
                     <div class="gallery">
                         <div class="item">
-                            <img src="../assets/imagenes/extensiones.jpeg" alt="Extensión de Cabello 1">
+                            <img src="../assets/imagenes/extension.jpg" alt="Extensión de Cabello 1">
                             <h2>Extensión de Cabello 1</h2>
                             <p>Descripción de la extensión de cabello 1. Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. </p>

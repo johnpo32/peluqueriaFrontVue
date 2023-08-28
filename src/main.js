@@ -12,6 +12,7 @@ import { initializeApp } from "firebase/app";
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
+import 'bootstrap/js/dist/dropdown'
 
 const firebaseConfig = {
     apiKey: "AIzaSyBEAdxJEEVnpPiYY3gs01PAbphgMKm9wtM",
